@@ -1,0 +1,26 @@
+subject as a service for local storage
+<hr />
+<div *ngIf="myInfo$ | async as myInfo">
+  name: {{ myInfo?.name || 'no name set'}}
+  <br>
+  age: {{ myInfo?.age || 'no age set'}}
+  <br />
+  <hr />
+</div>
+<div>
+  <form *ngIf="form" [formGroup]="form">
+    <input formControlName="name" type="text" placeHolder="name" />
+    <br /><br />
+    <input formControlName="age" type="text" placeHolder="age" />
+    <br /><br />
+    <button (click)="setInfo()" type="button">
+      set Info
+    </button>
+    <button (click)="clearInfo()" type="button">
+      clear Info
+    </button>
+    <button (click)="clearAll()" type="button">
+      clear all local storage
+    </button>
+  </form>
+</div>
